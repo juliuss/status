@@ -1,0 +1,44 @@
+#{set 'moreScripts'}
+#{get 'moreScripts' /}
+<script>
+  
+  var last_y_${_id} = 0;
+  
+  $( document ).ready(function() {
+    d3.json('/metric?id='+${_id}, function(data) {
+      
+      nv.addGraph(function() {
+        var chart = nv.models.lineChart()
+                       /*.interpolate("basis")*/
+                      .showLegend(false)
+                      .x(function(d) { return d[0]; })
+                      .y(function(d) { 
+                        last_y_${_id} = d[1];
+                        return d[1];
+                      })
+                      .color(['${_color}']);
+                      
+        chart.xAxis.tickFormat(function(d) {
+          return d3.time.format('%m/%d/%y')(new Date(d))
+        });
+        
+        chart.yAxis.tickFormat(d3.format(',.1'));
+        chart.forceY([0,10]);
+        chart.tooltipContent(function(key, x, y, e, graph) {
+          return '<div style="text-align:center;" class="chart-tooltip">' + x + '<br>' + y + '</div>'
+        });
+        
+        d3.select('${_selector}')
+            .datum(data)
+            .call(chart);
+  
+        nv.utils.windowResize(chart.update);
+        
+        $('${_callout}').html(format(last_y_${_id}));
+        
+        return chart;
+      });
+    });
+  });
+</script>
+#{/set}

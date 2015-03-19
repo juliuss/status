@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Setup Status</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400, 700' rel='stylesheet' type='text/css'>
+    #{get 'moreStyles' /}
+    <style>
+      #signup{height:100%;background-attachment:fixed!important;background:#1A4271;background:-webkit-linear-gradient(top,#2E6293 0,#1A4271 100%);background:-moz-linear-gradient(top,#2E6293 0,#1A4271 100%);background:-o-linear-gradient(top,#2E6293 0,#1A4271 100%);background:linear-gradient(top,#2E6293 0,#1A4271 100%);-webkit-font-smoothing:antialiased}
+      #signup .header .logo{margin-top:40px;text-align:center}
+      #signup .header .logo a{color:#fff;font-size:31px;font-family:"Montserrat","Helvetica Neue",Arial;-webkit-transition:color .25s linear;-moz-transition:color .25s linear;-ms-transition:color .25s linear;-o-transition:color .25s linear;transition:color .25s linear}
+      #signup .header .logo a:hover{text-decoration:none;color:#fff}
+      #signup .header h4{color:#fff;text-align:center;font-size:28px;font-weight:400;font-family:Myriad Pro,Lato,Helvetica Neue,Arial;margin-top:45px;margin-bottom:5px}
+      #signup .header p{color:#fff;text-align:center}
+      #signup .wrapper{margin:0 auto;width:51%;margin-top:25px;background:#fff;padding:15px 50px 25px;border-radius:5px;border-top:6px solid #6ED5E4}
+      @media (max-width: 991px) {
+      #signup .wrapper{width:67%}
+      }
+      @media (max-width: 767px) {
+      #signup .wrapper{width:100%}
+      }
+      #signup .wrapper .formy{margin-top:22px}
+      #signup .wrapper .formy .form-group label{color:#46515F}
+      #signup .wrapper .formy .checkbox label{color:#666;font-size:13px}
+      #signup .wrapper .formy .checkbox input{position:relative;top:-1px}
+      #signup .wrapper .formy .submit{text-align:center}
+      #signup .wrapper .formy .submit .button-clear{margin-top:35px;display:inline-block}
+      #signup .wrapper .formy .info{float:right;width:67%}
+      #signup .wrapper .formy .info .good-company strong{font-size:15px;font-weight:500}
+      #signup .wrapper .formy .info .good-company p{color:#858585;margin-top:9px}
+      #signup .wrapper .formy .info .testimonial{margin-top:40px}
+      #signup .wrapper .formy .info .testimonial .quote{font-style:italic;font-size:13px;color:#555;line-height:20px;-webkit-font-smoothing:auto}
+      #signup .wrapper .formy .info .testimonial .author{margin-top:20px}
+      #signup .wrapper .formy .info .testimonial .author .pic{width:55px;height:55px;border-radius:50px;float:left;position:relative;top:-6px;margin-right:18px}
+      #signup .wrapper .formy .info .testimonial .author .name{color:#3C92C5;line-height:23px;font-weight:500}
+      #signup .wrapper .formy .info .testimonial .author .company{font-size:14px;color:#909090;line-height:23px;font-weight:400}
+      #signup .already-account{text-align:center;color:#fff;margin-top:25px;margin-bottom:70px;font-size:13px;font-weight:500}
+      #signup .already-account a{color:#fff;text-decoration:underline}
+      #signup .already-account .popover-content{color:#000;font-size:17px;font-weight:400}
+      .glyphicon{font-size:.8em}
+    </style>
+  </head>
+  <body id="signup">
+    <div class="container">
+      <div class="row header">
+        <div class="col-md-12">
+          <h3 class="logo">
+            <a href="/"><span class="glyphicon glyphicon-dashboard"></span> Status</a>
+          </h3>
+          <h4>${headline}</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="wrapper clearfix">
+            <div class="formy">
+              <div class="row">
+                <div class="col-md-12">
+                  #{if flash.error != null}
+                    <div class="alert alert-danger" role="alert">${flash.error}</div>
+                  #{/if}
+                  #{doLayout/}
+                </div>
+              </div>            
+            </div>
+          </div>
+          <div class="already-account">
+            <a href="#">Learn about security here.</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    #{get 'moreScripts' /}
+  </body>
+</html>

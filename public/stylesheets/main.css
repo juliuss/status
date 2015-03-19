@@ -1,0 +1,208 @@
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+.hero {
+  background-image:linear-gradient(to bottom, #0e3877, #2b71b1); 
+}
+
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+.navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus {
+  color: white;
+}
+
+.navbar-wrapper {
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+.hero {
+  margin-bottom: 60px;
+}
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+@media (min-width: 768px) {
+  .navbar-wrapper {
+    padding-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+/* fix admin drop down */
+.navbar-wrapper a {
+  color:white;
+}
+.nav>li>a:hover,.nav>li>a:active,.nav>li>a:focus  {
+  background:none;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+  background: none;
+  border:none;
+}
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+html {
+  -webkit-font-smoothing: antialiased !important;
+}
+.stats {
+  padding:20px 0;
+}
+.stat:first-child {
+  border-left:none;
+}
+@media (min-width:992px) {
+  .stat {
+    border-left: 1px solid rgba(255,255,255,0.2);
+    
+  }
+}
+.stat {
+  text-align:center;
+  margin-bottom:15px;
+}
+.stat > div:first-child {
+  font-size: 26px;
+  font-weight: bold;
+}
+.hero {
+  color:white;
+}
+.main-title {
+  font-size:20px;
+  margin-left:17px;
+}
+.line {
+  background: rgb(230, 230, 230);
+  height: 1px;
+  position: relative;
+  z-index: 1;
+  top: -20px;
+  width: calc(100% - 280px);
+  left: 250px;
+  opacity: 0.4;
+}
+#metric1 h2 small {
+  color:white;
+}
+h2 .fa {
+  font-size:17px;
+}
+text {
+    font: 12px sans-serif;
+}
+svg {
+    display: block;
+}
+.chart {
+
+}
+.chart svg {
+    height:350px;
+}
+svg {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+.tick > line {
+  display:none;
+}
+.nv-y .tick:first-child > line {
+  display:block;
+  stroke:#658EB8;
+}
+#metric1 .nv-y text, .nv-x text {
+  fill: white;
+  fill-opacity: 0.7;
+}
+.nv-y text, .nv-x text {
+  fill: #2b71b1;
+  fill-opacity: 0.7;
+}
+.domain {
+  display:none;
+}
+#metric1 .chart-tooltip {
+  color:white;
+  opacity:0.9;
+}
+.hero small {
+  color:white;
+  opacity:0.9;
+}
+.chart-tooltip {
+  color:#658EB8;
+  opacity:0.9;
+}
+.nvtooltip {
+  background:none;
+  border:none;
+}
+.nv-axisMaxMin {
+  display:none;
+}
+#_dailycred_modal_signin_el .modal-footer div:first-child {
+  display:none;
+}
+.issue-date {
+  margin:0 15px 40px 37px;
+}
+.date-divider {
+  margin:0;
+}
+.op {
+  color: rgb(20, 216, 20);
+  font-size:1.2em;
+}
+.minimal {
+  color: rgb(216, 174, 65);
+  font-size:1.2em;
+}
+.critical {
+  color: rgb(216, 36, 26);
+  font-size:1.2em;
+}
+.radio > label {
+  margin-right: 30px;
+}
+.radio {
+  margin-left: 15px;
+}

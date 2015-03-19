@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Status.index
+
+# Metrics
+GET     /metric                                 Metrics.metric
+
+# Admin
+GET     /admin/welcome                          Setup.firstRun
+POST    /admin/welcome                          Setup.firstRunPost
+GET     /admin/settings                         Admin.settings
+POST    /admin/settings                         Admin.settingsPost
+GET     /admin/metrics                          Admin.metrics
+POST    /admin/metrics                          Admin.metricsPost
+POST    /admin/metric/delete                    Admin.metricDelete
+POST    /admin/issue/new                        Admin.newIssue
+POST    /admin/issue/edit                       Admin.editIssue
+GET     /admin/issue/resolve                    Admin.resolveIssue
+POST    /admin/issue/delete                     Admin.deleteIssue
+POST    /admin/list-metrics                     Admin.listCloudWatchMetrics
+GET     /callback                               Admin.callback
+GET     /signout                                Admin.signout
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public

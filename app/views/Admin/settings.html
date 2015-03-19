@@ -1,0 +1,16 @@
+#{extends 'Admin/main.html' /}
+#{set headline:'Set up Status' /}
+
+<form action="#{if setup}@{Setup.firstRun()}#{/if}#{else}@{Admin.settingsPost()}#{/else}" method="post">
+    #{input flash:flash, display:'Company Name', name:'name' /}
+    #{input flash:flash, display:'Company Homepage', name:'home' /}
+    #{input flash:flash, display:'AWS Access Key ID', name:'awskey' /}
+    #{input flash:flash, display:'AWS Secret Access Key', name:'awssec' /}
+    <div class="alert alert-info">Status uses DailyCred to authenticate your administrator.  It's free.</div>
+    #{input flash:flash, display:'DailyCred App Id', name:'dcappid' /}
+    #{input flash:flash, display:'DailyCred Account Secret', name:'dcsec' /}
+    #{input flash:flash, display:'Admin\'s DailyCred User Id', name:'dcuserid' /}
+    <div class="submit">
+      <input type="submit" class="btn btn-primary" value="Save">
+    </div>
+</form>

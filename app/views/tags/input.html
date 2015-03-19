@@ -1,0 +1,4 @@
+<div class="form-group">
+  <label for="${_name}">${_display}</label>
+  <input type="${_type}" class="form-control" id="${_name}" name="${_name}" value="#{if _flash.get(_name)}${_flash.get(_name)}#{/if}#{else}${util.SQLite.get(_name)}#{/else}"/>
+</div>

@@ -1,0 +1,70 @@
+#{set 'moreScripts'}
+#{get 'moreScripts' /}
+<script>
+$("#m${_id}-subcat-id").depdrop({
+  url: '@{Admin.listCloudWatchMetrics()}',
+  depends: ['m${_id}-namespace-id']
+});
+</script>
+#{/set}
+
+<!-- Modal -->
+<form action="@{Admin.metricsPost()}" method="post">
+<div class="modal fade" id="m${_id}-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+      #{if _metric != null}
+        <input type="hidden" name="id" value="${_metric.id}">
+      #{/if}
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">${_title}</h4>
+        </div>
+        <div class="modal-body">
+          <label></label>
+          <div class="row">
+            <div class="col-xs-6">
+              <select id="m${_id}-namespace-id" class="form-control input-lg" name="namespace">
+                <option id="">Namespace ...</option>
+                #{list _namespaces}
+                  <option id="${_}" #{if _metric != null && _metric.namespace.equals(_)}selected#{/if}>${_}</option>
+                #{/list}
+              </select>
+            </div>
+            <div class="col-xs-6">
+              <select id="m${_id}-subcat-id" class="form-control input-lg" name="name" #{if _metric == null}disabled="disabled"#{/if}>
+                #{if _metric != null}<option id="${_metric.raw}">${_metric.raw}</option>#{/if}
+                #{else}<option id="">Metric ...</option>#{/else}
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <input type="text" class="form-control input-lg" name="display" placeholder="Display name (e.g. Requests)" #{if _metric != null}value="${_metric.display}"#{/if}>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <input type="text" class="form-control input-lg" name="unit" placeholder="Unit (e.g. per hour)" #{if _metric != null}value="${_metric.unit}"#{/if}>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <select class="form-control input-lg" name="operation">
+                <option value="Average" #{if _metric != null && _metric.operation.equals("Average")}selected#{/if}>Average</option>
+                <option id="Sum" #{if _metric != null && _metric.operation.equals("Sum")}selected#{/if}>Sum</option>
+                <option id="Maximum" #{if _metric != null && _metric.operation.equals("Maximum")}selected#{/if}>Maximum</option>
+                <option id="Minimum" #{if _metric != null && _metric.operation.equals("Minimum")}selected#{/if}>Minimum</option>
+                <option id="SampleCount" #{if _metric != null && _metric.operation.equals("SampleCount")}selected#{/if}>SampleCount</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value="Save">
+        </div>
+      </div>
+  </div>
+</div>
+</form>

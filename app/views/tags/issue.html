@@ -1,0 +1,58 @@
+<!-- Modal -->
+#{if _issue == null}<form action="@{Admin.newIssue()}" method="post">#{/if}
+#{else}<form action="@{Admin.editIssue(_issue.id)}" method="post">#{/else}
+<div class="modal fade" id="${_id}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+      #{if _issue != null}
+        <input type="hidden" name="id" value="${_issue.id}">
+      #{/if}
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">${_title}</h4>
+        </div>
+        <div class="modal-body">
+          <label>Name</label>
+          <div class="row">
+            <div class="col-xs-12">
+              <input type="text" class="form-control input-lg" name="name" placeholder="Service Interruption" #{if _issue != null}value="${_issue.name}"#{/if}>
+            </div>
+          </div>
+          <br>
+          <label>Impact</label>
+          <div class="row">
+            <div class="radio">
+              <label>
+                <input type="radio" name="impact" value="none" class="radio-inline" #{if _issue != null && _issue.impact.equals('none')}checked#{/if}>
+                  <span class="op">●</span> No impact
+              </label>
+              <label>
+                <input type="radio" name="impact" value="minimal" class="radio-inline" #{if _issue != null && _issue.impact.equals('minimal')}checked#{/if}>
+                  <span class="minimal">●</span> Minimal
+              </label>
+              <label>
+                <input type="radio" name="impact" value="major"  class="radio-inline" #{if _issue != null && _issue.impact.equals('major')}checked#{/if}#{if _issue == null}checked#{/if}>
+                  <span class="critical">●</span> Major
+              </label>
+              <label>
+                <input type="radio" name="impact" value="critical" class="radio-inline" #{if _issue != null && _issue.impact.equals('critical')}checked#{/if}>
+                  <span class="critical">●</span> Critical
+              </label>
+            </div>
+          </div>
+          <br>
+          <label>Message</label>
+          <div class="row">
+            <div class="col-xs-12">
+              <textarea name="message" placeholder="" class="form-control">#{if _issue != null}${_issue.message}#{/if}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary" value="Save">
+        </div>
+      </div>
+  </div>
+</div>
+</form>
